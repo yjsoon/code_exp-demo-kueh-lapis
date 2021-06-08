@@ -6,11 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import BlockRGB from "./components/BlockRGB";
 
 function HomeScreen() {
-  const [colors, setColors] = useState([
-    { red: 255, green: 0, blue: 0, id: "0" },
-    { red: 0, green: 255, blue: 0, id: "1" },
-    { red: 0, green: 0, blue: 255, id: "2" },
-  ]);
+  const [colors, setColors] = useState([]);
 
   function renderItem({ item }) {
     return <BlockRGB red={item.red} green={item.green} blue={item.blue} />;
@@ -18,13 +14,13 @@ function HomeScreen() {
 
   function addColor() {
     setColors([
-      ...colors,
       {
-        red: Math.floor(Math.random() * 255),
-        green: Math.floor(Math.random() * 255),
-        blue: Math.floor(Math.random() * 255),
+        red: Math.floor(Math.random() * 256),
+        green: Math.floor(Math.random() * 256),
+        blue: Math.floor(Math.random() * 256),
         id: `${colors.length}`,
       },
+      ...colors,
     ]);
   }
 
