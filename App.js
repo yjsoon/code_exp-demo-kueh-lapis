@@ -3,12 +3,14 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import BlockRGB from "./components/BlockRGB";
 
 function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <BlockRGB red={255} green={0} blue={0} />
+      <BlockRGB red={0} green={255} blue={0} />
+      <BlockRGB red={0} green={0} blue={255} />
     </View>
   );
 }
@@ -30,6 +32,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#eee",
     alignItems: "center",
-    justifyContent: "center",
   },
 });
