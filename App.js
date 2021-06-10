@@ -20,7 +20,7 @@ function HomeScreen({ navigation }) {
     return (
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Details");
+          navigation.navigate("Details", { ...item });
         }}
       >
         <BlockRGB red={item.red} green={item.green} blue={item.blue} />
