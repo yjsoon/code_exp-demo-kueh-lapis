@@ -1,15 +1,31 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, View, Button } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import BlockRGB from "./components/BlockRGB";
+import DetailsScreen from "./screens/DetailsScreen";
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   const [colors, setColors] = useState([]);
 
   function renderItem({ item }) {
-    return <BlockRGB red={item.red} green={item.green} blue={item.blue} />;
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Details");
+        }}
+      >
+        <BlockRGB red={item.red} green={item.green} blue={item.blue} />
+      </TouchableOpacity>
+    );
   }
 
   function addColor() {
@@ -42,7 +58,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Kueh Lapis" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
